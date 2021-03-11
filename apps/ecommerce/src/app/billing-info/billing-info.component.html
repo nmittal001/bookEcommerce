@@ -1,0 +1,37 @@
+<div class="main-div">
+    <mat-card class="mat-card" class="flex-column-style">
+        <mat-card-header>
+            <mat-card-title>Billing Info</mat-card-title>
+        </mat-card-header>
+
+        <mat-card-content class="flex-row-style">
+            <div>
+                <img mat-card-image src="https://static.vecteezy.com/system/resources/thumbnails/000/437/183/small/Ecommerce__28108_29.jpg"
+                    alt="Billing">
+            </div>
+            <div>
+                <form class="search-form" #myform="ngForm" class="flex-column-style" class="full-width">
+                    <mat-form-field class="full-width">
+                        <mat-label>Name</mat-label>
+                        <input matInput placeholder="Name" value="" name="name" ngModel required="true">
+                    </mat-form-field>
+                    <mat-form-field class="full-width">
+                        <mat-label>Email</mat-label>
+                        <input matInput placeholder="email@domain.com" value="" name="email" ngModel required="true">
+                    </mat-form-field>
+                    <mat-form-field class="full-width">
+                        <mat-label>Phone</mat-label>
+                        <input matInput placeholder="9706123123" value="" name="phone" ngModel required="true">
+                    </mat-form-field>
+                    <mat-form-field class="full-width">
+                        <mat-label>Address</mat-label>
+                        <textarea matInput placeholder="Address..." name="address" ngModel required="true"></textarea>
+                    </mat-form-field>
+                </form>
+                <mat-card-actions>
+                    <button (click)="submit(myform)" mat-raised-button color="accent">Submit</button>
+                </mat-card-actions>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>

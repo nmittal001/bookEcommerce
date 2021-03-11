@@ -1,0 +1,59 @@
+.main-div{
+  margin: auto;
+  width: 75%;
+  padding: 10px;
+}
+.mat-card {
+  align-items: center;
+  margin-bottom: 16px;
+  margin-left: 5%;
+  padding: 5%;
+}
+.cardHeader{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding-top: 5%;
+}
+.mat-card-image {
+  float:left;
+  width: 15%;
+  height: 25%;
+  overflow:hidden;
+}
+.titleHeader {
+  width: 75%;
+  overflow:hidden;
+}
+.mat-raised-button {
+  min-width: 12%;
+}
+.mat-card-content {
+  overflow: hidden;
+  white-space: normal;
+  height: 4.6em; /* exactly 2 lines */
+  text-overflow: -o-ellipsis-lastline;
+}
+p {
+  padding: 5%;
+}
+.footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.mat-icon {
+  width: 5%;
+  overflow:hidden;
+  margin-right: 5%;
+  margin-top: 2%;
+}
+.footerLeft {
+  width: 95%;
+  float:left;
+  overflow:hidden;
+  margin-left: 5%;
+}
+.buyButton {
+  margin-left: 5%;
+}

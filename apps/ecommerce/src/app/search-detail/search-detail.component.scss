@@ -1,0 +1,33 @@
+.main-div{
+  margin: auto;
+  width: 75%;
+  padding: 10px;
+}
+.mat-card {
+  align-items: center;
+  margin-bottom: 16px;
+  margin-left: 5%;
+}
+.cardHeader{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.mat-card-image {
+  float:left;
+  width: 12%;
+  height: 24%;
+  margin-right: 2%;
+  overflow:hidden;
+}
+.titleHeader {  
+  width: 90%;
+  overflow:hidden;
+}
+
+.mat-raised-button {
+  min-width: 12%;
+}
+.mat-icon{
+  color: #fb8c00;
+}

@@ -1,0 +1,63 @@
+<div class="main-div">
+    <mat-card class="mat-card" *ngFor="let info of searchInfo" class="mat-elevation-z4">
+        <div class="cardHeader">
+            <div class="titleHeader">
+                <mat-card-title>
+                    {{info.volumeInfo.title}}
+                </mat-card-title>
+                <mat-card-subtitle>
+                    {{info.volumeInfo.subtitle}}
+                </mat-card-subtitle>
+            </div>
+            <img mat-card-image src={{info.volumeInfo.imageLinks.thumbnail}} alt="">
+        </div>
+        <mat-card-content class="mat-card-content">
+            <table>
+                <tr>
+                    <td>
+                        <b>Rating:</b>
+                    </td>
+                    <td>
+                        <mat-icon *ngFor="let star of stars"> {{showStar(star, info.volumeInfo.averageRating)}}
+                        </mat-icon>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <b>Publisher:</b>
+                    </td>
+                    <td>
+                        {{info.volumeInfo.publisher}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <b>Page Count:</b>
+                    </td>
+                    <td>
+                        {{info.volumeInfo.pageCount}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <b>Language:</b>
+                    </td>
+                    <td>
+                        {{info.volumeInfo.language}}
+                    </td>
+                </tr>
+            </table>
+            <p>
+                {{info.volumeInfo.description}}<br>
+            </p>
+            <p>
+                <b>Written By:</b><br>
+                {{info.volumeInfo.authors.join(", ")}}
+            </p>
+        </mat-card-content>
+        <mat-card-actions>
+            <button (click)="addToCart()" mat-raised-button color="accent">ADD TO CART</button>
+            <button (click)="buy(info)" mat-raised-button color="accent">BUY</button>
+        </mat-card-actions>
+    </mat-card>
+</div>

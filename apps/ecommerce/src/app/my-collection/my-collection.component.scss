@@ -1,0 +1,41 @@
+.main-div {
+    margin: auto;
+    width: 75%;
+    padding: 10px;
+}
+.search-form {
+    min-width: 15%;
+    max-width: 20%;
+    width: 100%;
+    padding: 2%;
+    display: inline-block;
+}
+.search-full-width {
+    width: 100%;
+}
+.mat-card {
+    margin-left: 5%;
+    margin-bottom: 16px;
+}
+.cardHeader {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.mat-card-image {
+    float:left;
+    width: 5%;
+    height: 8%;
+    overflow:hidden;
+}
+.titleHeader {
+    width: 85%;
+    overflow: hidden;
+}
+.mat-card-content {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+   -webkit-line-clamp: 2; /* number of lines to show */
+   -webkit-box-orient: vertical;
+}
