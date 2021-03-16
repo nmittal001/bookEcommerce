@@ -21,6 +21,7 @@ export const getCartData = createSelector(getCartDataState, fromCart.getCartData
 export const getBuyData = createSelector(getBuyDataState, fromBuy.getBuyData);
 export const getLoading = createSelector(getSearchDataState, fromSearch.getLoading);
 export const getLoaded = createSelector(getSearchDataState, fromSearch.getLoaded);
+export const getSearchFail = createSelector(getSearchDataState, fromSearch.getSearchFail);
 
 export const rootReducer: ActionReducerMap<RootReducerState> = {
     searchData: fromSearch.SeachReducer,

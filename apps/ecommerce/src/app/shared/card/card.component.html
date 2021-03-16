@@ -1,0 +1,30 @@
+<div fxLayout="row wrap" fxLayoutGap="5px grid" *ngIf='!error'>
+    <mat-card (click)="onCardClick(info)" class="mat-card" *ngFor="let info of data | async" fxFlex="45%" fxFlex.xs="100%" fxFlex.sm="33%" class="mat-elevation-z4">
+        <div class="cardHeader">
+            <div class="titleHeader">
+                <mat-card-title>
+                    {{info.volumeInfo.title}}
+                </mat-card-title>
+                <mat-card-subtitle>
+                    {{info.volumeInfo.subtitle}}
+                </mat-card-subtitle>
+            </div>
+            <img mat-card-image src={{info.volumeInfo.imageLinks.thumbnail}} alt="">
+        </div>
+        <mat-card-content class="mat-card-content">
+            <p>
+                {{info.volumeInfo.description}}
+            </p>
+        </mat-card-content>
+        <div class="footer">
+            <div class="footerLeft">
+                <b>Written By:</b><br>
+                {{info.volumeInfo.authors.join(", ")}}
+            </div>
+            <mat-icon color="accent" (click)="removeFromCart(info)" *ngIf='!search'>remove_shopping_cart</mat-icon>
+        </div>
+    </mat-card>
+</div>
+<div class="buyButton" *ngIf='!search'>
+    <button (click)="buy()" *ngIf="data && (data  | async).length > 0" mat-raised-button color="accent">Proceed to purchase</button>
+</div>

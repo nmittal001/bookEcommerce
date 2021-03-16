@@ -12,6 +12,7 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { URLS } from '../../constants/constants';
 import { HttpClientService } from "../services/http-client.service";
 import { of } from 'rxjs';
+import { MatDialogModule, MatDialog } from '@angular/material/dialog';
 
 describe('SearchComponent', () => {
   let component: SearchComponent;
@@ -21,6 +22,7 @@ describe('SearchComponent', () => {
   }
 
   beforeEach(async () => {
+    const matDialogStub = () => ({ open: (dialogComponent) => ({}) });
     await TestBed.configureTestingModule({
       imports: [
         StoreModule.forRoot(rootReducer),
@@ -28,9 +30,11 @@ describe('SearchComponent', () => {
         BrowserAnimationsModule,
         FormsModule,
         HttpClientTestingModule,
+        MatDialogModule
       ],
       providers: [
         { provide: Router, useValue: router },
+        { provide: MatDialog, useFactory: matDialogStub },
         {
           provide: HttpClientService,
           useValue: {

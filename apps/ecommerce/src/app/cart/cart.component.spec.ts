@@ -15,6 +15,7 @@ import { Router } from '@angular/router';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import { URLS } from '../../constants/constants';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 
 describe('CartComponent', () => {
@@ -42,6 +43,7 @@ describe('CartComponent', () => {
       providers: [
         { provide: Router, useValue: router }
       ],
+      schemas: [NO_ERRORS_SCHEMA],
       declarations: [CartComponent],
 
     })
@@ -56,16 +58,5 @@ describe('CartComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
-  });
-
-  it('should create removeFromCart', () => {
-    jest.spyOn(component, 'removeFromCart');
-    component.removeFromCart({ id: 'cdsHJMkccd' });
-    expect(component.removeFromCart).toHaveBeenCalled();
-  });
-
-  it('should create buy', () => {
-    component.buy();
-    expect(router.navigate).toHaveBeenCalledWith([URLS.BILLING_INFO]);
   });
 });

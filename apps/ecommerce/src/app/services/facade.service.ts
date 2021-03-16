@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 
 import { Store } from '@ngrx/store';
-import { getLoading, getSearchData, RootReducerState, getCartData, getBuyData } from '../reducers';
+import { getLoading, getSearchData, RootReducerState, getCartData, getBuyData, getSearchFail } from '../reducers';
 import { SearchRequestAction, SearchRequestSuccessAction } from '../actions/actions';
 import { CartRequestSuccessAction } from '../actions/cart-actions';
 import { CartDeleteSuccessAction } from '../actions/cart-actions';
 import { BuyRequestSuccessAction } from '../actions/buy-actions'
+// import { getSearchFail } from '../reducers/search-reducers';
 
 
 @Injectable({
@@ -21,8 +22,8 @@ export class FacadeService {
     return this.store.select(getSearchData);
   }
 
-  searchRequestAction() {
-    return this.store.dispatch(new SearchRequestAction());
+  searchRequestAction(query: string) {
+    return this.store.dispatch(new SearchRequestAction(query));
   }
 
   searchRequestSuccessAction(data) {
@@ -59,5 +60,9 @@ export class FacadeService {
         { buy: buyItems, info: { name: form.value.name, email: form.value.email, phone: form.value.phone, address: form.value.address } }
       ]
     }));
+  }
+
+  getSearchFail() {
+    return this.store.select(getSearchFail);
   }
 }

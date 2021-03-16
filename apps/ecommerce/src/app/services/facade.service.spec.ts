@@ -31,7 +31,7 @@ describe('FacadeService', () => {
   it('makes expected searchRequestAction calls', () => {
     const storeStub: Store = TestBed.inject(Store);
     spyOn(storeStub, 'dispatch').and.callThrough();
-    service.searchRequestAction();
+    service.searchRequestAction('query');
     expect(storeStub.dispatch).toHaveBeenCalled();
   });
 

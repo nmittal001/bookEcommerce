@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { FacadeService } from '../services/facade.service';
 
@@ -18,6 +18,9 @@ export class SideBarComponent {
       map(result => result.matches),
       shareReplay()
     );
+  subscription: Subscription;
+  subscription1: Subscription;
+
 
   constructor(
     private breakpointObserver: BreakpointObserver,
@@ -26,11 +29,15 @@ export class SideBarComponent {
   }
 
   ngOnInit(): void {
-    this.facadeService.getCartData().subscribe((data) => {
+    this.subscription = this.facadeService.getCartData().subscribe((data) => {
       this.noOfCart = data.length;
     });
-    this.facadeService.getBuyData().subscribe((data) => {
+    this.subscription1 = this.facadeService.getBuyData().subscribe((data) => {
       this.noOfCollection = data.length;
     });
+  }
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+    this.subscription1.unsubscribe();
   }
 }

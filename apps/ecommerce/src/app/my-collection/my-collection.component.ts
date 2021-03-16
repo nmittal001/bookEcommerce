@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { FacadeService } from '../services/facade.service';
 
 @Component({
@@ -12,11 +13,16 @@ export class MyCollectionComponent implements OnInit {
     private facadeService: FacadeService
   ) { }
 
+  subscription: Subscription;
   mycollectionData = [];
 
   ngOnInit(): void {
-    this.facadeService.getBuyData().subscribe((data) => {
+    this.subscription = this.facadeService.getBuyData().subscribe((data) => {
       this.mycollectionData = data;
     });
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 }

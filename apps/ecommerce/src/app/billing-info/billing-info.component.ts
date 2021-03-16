@@ -6,6 +6,8 @@ import { take } from 'rxjs/operators';
 import { ActivatedRoute, Router } from '@angular/router';
 import { URLS } from '../../constants/constants';
 import { MatDialog } from '@angular/material/dialog';
+import * as sharedModule from '../shared';
+import { SearchDataInterface } from '../models/searchData';
 
 @Component({
   selector: 'prokarma-billing-info',
@@ -21,10 +23,9 @@ export class BillingInfoComponent implements OnInit {
     private facadeService: FacadeService
   ) { }
 
-  cartData: Observable<[]>;
+  cartData: Observable<[SearchDataInterface]>;
   id: any;
   buyItems: any;
-
 
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id');
@@ -44,13 +45,12 @@ export class BillingInfoComponent implements OnInit {
     }
     this.facadeService.buyRequestSuccessAction(this.buyItems, form);
 
-    const dialogRef = this.dialog.open(DialogContentDialog);
+    this.dialog.open(sharedModule.DialogComponent, {
+      data: {
+        title: 'Hello',
+        content: 'Ordered Successfully.'
+      }
+    });
     this.router.navigate([URLS.MY_COLLECTION]);
   }
 }
-
-@Component({
-  selector: 'dialogContentDialog',
-  templateUrl: 'dialog.html',
-})
-export class DialogContentDialog { }
