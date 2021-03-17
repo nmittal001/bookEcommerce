@@ -15,8 +15,8 @@ export class HttpClientService {
   constructor(private http: HttpClient) {
   }
 
-  get(query): Observable<any> {
-    const url = `https://cors-anywhere.herokuapp.com/https://www.googleapis.com/books/v1/volumes?q=${query.payload}`;
+  get(query: string): Observable<any> {
+    const url = `https://cors-anywhere.herokuapp.com/https://www.googleapis.com/books/v1/volumes?q=${query}`;
     return this.http.get(url, this.httpOptions);
   }
 }

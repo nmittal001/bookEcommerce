@@ -1,4 +1,4 @@
-import { ActionReducerMap } from '@ngrx/store'
+import { ActionReducerMap as reducer } from '@ngrx/store'
 import * as fromSearch from './search-reducers'
 import * as fromCart from './cart-reducers'
 import * as fromBuy from './buy-reducers'
@@ -23,7 +23,7 @@ export const getLoading = createSelector(getSearchDataState, fromSearch.getLoadi
 export const getLoaded = createSelector(getSearchDataState, fromSearch.getLoaded);
 export const getSearchFail = createSelector(getSearchDataState, fromSearch.getSearchFail);
 
-export const rootReducer: ActionReducerMap<RootReducerState> = {
+export const rootReducer: reducer<RootReducerState> = {
     searchData: fromSearch.SeachReducer,
     buyData: fromBuy.BuyReducer,
     cartData: fromCart.CartReducer

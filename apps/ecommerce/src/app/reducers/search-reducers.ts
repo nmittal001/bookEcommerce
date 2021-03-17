@@ -7,7 +7,7 @@ export interface SearchDataReducerState {
     loaded: boolean,
     searchData: SearchData[],
     searchKey: string,
-    error: boolean;
+    error: boolean
 }
 
 const initialState: SearchDataReducerState = {

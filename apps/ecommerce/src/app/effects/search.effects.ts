@@ -15,15 +15,15 @@ export class SearchEffects {
     ofType(SearchActions.SEARCH_DATA_REQUEST),
     mergeMap((SearchRequestObj) => this.httpClient.get(SearchRequestObj)
       .pipe(
-        map(movies => ({
+        map(book => ({
           type: SearchActions.SEARCH_DATA_SUCCESS,
-          payload: { data: movies.items }
+          payload: { data: book.items }
         })),
         catchError((err) => [{
           type: SearchActions.SEARCH_DATA_FAILED,
           payload: {}
         }])
-      ))
-  )
+      )
+    ))
   );
 }

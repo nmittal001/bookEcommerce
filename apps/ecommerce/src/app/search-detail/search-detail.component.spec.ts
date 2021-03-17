@@ -45,7 +45,8 @@ describe('SearchDetailComponent', () => {
           provide: FacadeService,
           useValue: {
             getSearhData: () => of([{
-              id: 123, volumeInfo: {
+              id: 123,
+              volumeInfo: {
                 title: 'title',
                 subtitle: 'subtitle',
                 imageLinks: { thumbnail: 'thumbnail' },

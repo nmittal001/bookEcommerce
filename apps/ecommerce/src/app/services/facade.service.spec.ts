@@ -97,4 +97,11 @@ describe('FacadeService', () => {
     service.buyRequestSuccessAction([], {value:{ name:'nite', email: 'email', phone: '9706323', address: 'address'}});
     expect(storeStub.dispatch).toHaveBeenCalled();
   });
+  
+  it('makes expected getSearhData calls', () => {
+    const storeStub: Store = TestBed.inject(Store);
+    spyOn(storeStub, 'select').and.callThrough();
+    service.getSearchFail();
+    expect(storeStub.select).toHaveBeenCalled();
+  });
 });

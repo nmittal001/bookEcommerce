@@ -13,6 +13,7 @@ import { URLS } from '../../constants/constants';
 import { HttpClientService } from "../services/http-client.service";
 import { of } from 'rxjs';
 import { MatDialogModule, MatDialog } from '@angular/material/dialog';
+import { FacadeService } from '../services/facade.service';
 
 describe('SearchComponent', () => {
   let component: SearchComponent;
@@ -35,6 +36,28 @@ describe('SearchComponent', () => {
       providers: [
         { provide: Router, useValue: router },
         { provide: MatDialog, useFactory: matDialogStub },
+        {
+          provide: FacadeService,
+          useValue: {
+            getSearhData: () => of([{
+              id: 123,
+              volumeInfo: {
+                title: 'title',
+                subtitle: 'subtitle',
+                imageLinks: { thumbnail: 'thumbnail' },
+                averageRating: 4,
+                publisher: 'publisher',
+                pageCount: 'pageCount',
+                language: 'language',
+                description: 'description',
+                authors: ['author1, author2']
+              }
+            }]),
+            getSearchFail: () => of({data: true}),
+            searchRequestAction: () => of({}),
+            getLoading: () => of({data: true})
+          },
+        },
         {
           provide: HttpClientService,
           useValue: {
@@ -74,5 +97,13 @@ describe('SearchComponent', () => {
     jest.spyOn(component, 'onSearchClick');
     component.onSearchClick(testForm);
     expect(component.onSearchClick).toHaveBeenCalled();
+  });
+
+  it('should create ngOnInit', () => {
+    component.ngOnInit();
+  });
+
+  it('should create ngOnDestroy', () => {
+    component.ngOnDestroy();
   });
 });
