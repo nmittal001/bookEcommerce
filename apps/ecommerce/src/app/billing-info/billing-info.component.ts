@@ -30,7 +30,7 @@ export class BillingInfoComponent implements OnInit {
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id');
   }
-
+  
   submit(form: NgForm) {
     if (this.id != undefined) {
       this.facadeService.getSearhData().forEach(data => {

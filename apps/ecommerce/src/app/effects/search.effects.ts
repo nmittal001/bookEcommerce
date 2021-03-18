@@ -13,7 +13,7 @@ export class SearchEffects {
 
   loadBook$ = createEffect(() => this.actions$.pipe(
     ofType(SearchActions.SEARCH_DATA_REQUEST),
-    mergeMap((SearchRequestObj) => this.httpClient.get(SearchRequestObj)
+    mergeMap((SearchRequestOb) => this.httpClient.get(SearchRequestOb)
       .pipe(
         map(book => ({
           type: SearchActions.SEARCH_DATA_SUCCESS,

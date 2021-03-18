@@ -1,15 +1,15 @@
 <div class="main-div">
-    <mat-card class="mat-card" class="flex-column-style">
-        <mat-card-header>
-            <mat-card-title>Billing Info</mat-card-title>
-        </mat-card-header>
-
+    <mat-card class="mat-card">
         <mat-card-content class="flex-row-style">
-            <div>
-                <img mat-card-image src="https://static.vecteezy.com/system/resources/thumbnails/000/437/183/small/Ecommerce__28108_29.jpg"
+            <div class="billingImage">
+                <img mat-card-image
+                    src="https://static.vecteezy.com/system/resources/thumbnails/000/437/183/small/Ecommerce__28108_29.jpg"
                     alt="Billing">
             </div>
-            <div>
+            <div class="formWithButton">
+                <mat-card-header>
+                    <mat-card-title>Billing Info</mat-card-title>
+                </mat-card-header>
                 <form class="search-form" #myform="ngForm" class="flex-column-style" class="full-width">
                     <mat-form-field class="full-width">
                         <mat-label>Name</mat-label>
